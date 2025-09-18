@@ -1,0 +1,68 @@
+:root{
+  --toolbar-h:48px;
+  --accent:#2b6cb0;
+  --bg:#f7fafc;
+}
+.mm-root{height:100vh;display:flex;flex-direction:column;font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;color:#111}
+.mm-toolbar{
+  height:var(--toolbar-h);
+  background:linear-gradient(90deg,#fff,#f3f6fb);
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 12px;
+  border-bottom:1px solid #e2e8f0;
+}
+.mm-toolbar button{padding:6px 10px;border-radius:4px;border:1px solid #cbd5e1;background:#fff;cursor:pointer}
+.mm-toolbar button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.mm-toolbar .hint{margin-left:12px;color:#64748b;font-size:13px}
+
+.mm-main{display:flex;flex:1;overflow:hidden;min-height:0}
+
+/* left palette */
+.mm-palette{
+  width:140px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  padding:12px;
+  border-right:1px solid rgba(15,23,36,0.03);
+  background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.6));
+  box-sizing:border-box;
+}
+.mm-shape-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:8px;
+  border-radius:8px;
+  border:1px solid rgba(15,23,36,0.04);
+  background:transparent;
+  cursor:grab;
+  user-select:none;
+}
+.mm-shape-item:active{ cursor:grabbing }
+.mm-shape-item svg{ width:28px; height:28px; flex:0 0 28px }
+.mm-shape-item span{ font-size:13px; color:var(--muted) }
+.mm-shape-item.active{
+  background:linear-gradient(90deg, rgba(37,99,235,0.06), rgba(124,58,237,0.03));
+  border-color:rgba(37,99,235,0.12);
+}
+
+/* ensure canvas container fills height */
+#mindmap{display:block;width:100%;height:100%}
+
+/* small helper: visually emphasize handles on hover (handles are drawn on canvas,
+   this rule provides spacing and doesn't add DOM elements) */
+.mm-sidebar{width:300px;}
+
+.mm-main{display:flex;flex:1;overflow:hidden}
+#mindmap{flex:1;background:var(--bg);display:block}
+.mm-sidebar{width:260px;padding:12px;border-left:1px solid #e2e8f0;background:#fff;display:flex;flex-direction:column;gap:8px}
+.mm-sidebar textarea{width:100%;height:80px;padding:8px;border:1px solid #e2e8f0;border-radius:6px;resize:none}
+.mm-nodes-list{list-style:none;overflow:auto;padding:4px;border:1px solid #e2e8f0;border-radius:6px;height:200px;margin:0}
+.mm-nodes-list li{padding:6px;border-bottom:1px dashed #edf2f7;font-size:13px;cursor:pointer}
+.mm-nodes-list li.selected{background:#eef2ff}
+@media (max-width:800px){
+  .mm-sidebar{display:none}
+}
