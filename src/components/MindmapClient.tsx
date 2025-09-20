@@ -47,8 +47,8 @@ export default function MindmapClient({ onClose }: { onClose?: () => void }) {
     resize();
     window.addEventListener('resize', resize);
     // initial sample
-    addNodeAt(200, 120, 'Central Idea', 'A short description');
-    addNodeAt(420, 260, 'First Branch', 'Details about branch');
+    /* addNodeAt(200, 120, 'Central Idea', 'A short description');
+    addNodeAt(420, 260, 'First Branch', 'Details about branch'); */
     return () => window.removeEventListener('resize', resize);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
